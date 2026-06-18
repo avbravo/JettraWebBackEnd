@@ -1,7 +1,7 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
-package com.jettra.main.jettrawebbackend;
+package com.jettra.main;
 
 import com.jettra.main.dashboard.DashboardPage;
 import com.jettra.main.login.LoginAdvancedPage;
