@@ -1,3 +1,3 @@
 mvn clean verify install
 
-java -jar target/JettraWebBackend-1.0-SNAPSHOT.jar
+java -jar -XX:+UseCompactObjectHeaders target/JettraWebBackEnd-1.0-SNAPSHOT.jar  

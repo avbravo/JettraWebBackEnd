@@ -52,4 +52,11 @@ public class CredentialRepository {
     public static Optional<Credential> findById(String id) {
         return db.stream().filter(r -> r.id().toString().equals(id)).findFirst();
     }
+    public static Optional<Credential> findByUsername(String username) {
+        return db.stream().filter(r -> r.username().toString().equals(username)).findFirst();
+    }
+    public static Optional<Credential> findByUsernamePassword(String username, String password) {
+        return db.stream().filter(r -> r.username().toString().equals(username)
+        && r.passwordHash().toString().equals(password)).findFirst();
+    }
 }

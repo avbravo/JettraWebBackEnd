@@ -166,7 +166,6 @@ public class Main {
 //        server.addHandler("/role", com.jettra.plugin.autentification.pages.RolePage.class);
 //        server.addHandler("/department", com.jettra.plugin.autentification.pages.DepartmentPage.class);
 //        server.addHandler("/user", com.jettra.plugin.autentification.pages.UserPage.class);
-
         // Define la lista de controladores REST que deseas documentar
 //        List<Class<?>> controllers = List.of(
 //                AuthController.class,
@@ -181,7 +180,8 @@ public class Main {
 //                com.jettra.plugin.autentification.controller.UserController.class
 //        );
         List<Class<?>> controllers = List.of(
-                     com.jettra.plugin.autentification.controller.CredentialController.class,
+                com.jettra.plugin.autentification.controller.AuthentificationController.class,
+                com.jettra.plugin.autentification.controller.CredentialController.class,
                 com.jettra.plugin.autentification.controller.PermissionController.class,
                 com.jettra.plugin.autentification.controller.RoleController.class,
                 com.jettra.plugin.autentification.controller.DepartmentController.class,
@@ -199,6 +199,7 @@ public class Main {
 //        com.jettra.rest.server.JettraRestServer.register(server, BookController.class);
 //        com.jettra.rest.server.JettraRestServer.register(server, PublisherController.class);
 //        com.jettra.rest.server.JettraRestServer.register(server, ReaderController.class);
+        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.AuthentificationController.class);
         com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.CredentialController.class);
         com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.PermissionController.class);
         com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.RoleController.class);

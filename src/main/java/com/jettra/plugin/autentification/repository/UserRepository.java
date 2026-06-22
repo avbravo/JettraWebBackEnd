@@ -54,4 +54,5 @@ public class UserRepository {
     public static Optional<User> findById(String id) {
         return db.stream().filter(r -> r.id().toString().equals(id)).findFirst();
     }
+   
 }

@@ -35,10 +35,26 @@ public class AuthController {
             return Response.status(Response.Status.UNAUTHORIZED).entity("{\"error\":\"Invalid credentials\"}").build();
         }
 
-        // Basic validation for demo purposes
-        // Any non-empty username/password will return a valid token
+        java.util.Optional<com.jettra.plugin.autentification.entity.Credential> optCred = com.jettra.plugin.autentification.repository.CredentialRepository.findAll().stream()
+                .filter(c -> c.username().equals(request.getUsername()) && c.passwordHash().equals(request.getPassword()))
+                .findFirst();
+
+        if (optCred.isEmpty()) {
+            return Response.status(Response.Status.UNAUTHORIZED).entity("{\"error\":\"Invalid credentials\"}").build();
+        }
+
+        com.jettra.plugin.autentification.entity.User user = optCred.get().user();
+        java.util.List<String> roleNames = new java.util.ArrayList<>();
+        if (user != null && user.roles() != null) {
+            for (com.jettra.plugin.autentification.entity.Role r : user.roles()) {
+                roleNames.add(r.name());
+            }
+        }
+
         JettraJWT jwt = new JettraJWT(JWT_SECRET, JWT_EXPIRATION);
-        String token = "Bearer " + jwt.generateToken(new HashMap<>(), request.getUsername());
+        java.util.Map<String, Object> claims = new HashMap<>();
+        claims.put("roles", roleNames);
+        String token = "Bearer " + jwt.generateToken(claims, request.getUsername());
 
         return Response.ok(new LoginResponse(token)).build();
     }
