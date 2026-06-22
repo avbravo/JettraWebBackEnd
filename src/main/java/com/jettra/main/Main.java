@@ -10,11 +10,6 @@ import com.jettra.server.config.ConfigInjector;
 
 import com.jettra.server.openapi.OpenApiHandler;
 import com.jettra.server.openapi.SwaggerUIHandler;
-import com.jettra.plugin.example.library.controller.AuthController;
-import com.jettra.plugin.example.library.controller.AuthorController;
-import com.jettra.plugin.example.library.controller.BookController;
-import com.jettra.plugin.example.library.controller.PublisherController;
-import com.jettra.plugin.example.library.controller.ReaderController;
 
 import java.util.List;
 
@@ -173,13 +168,20 @@ public class Main {
 //        server.addHandler("/user", com.jettra.plugin.autentification.pages.UserPage.class);
 
         // Define la lista de controladores REST que deseas documentar
+//        List<Class<?>> controllers = List.of(
+//                AuthController.class,
+//                AuthorController.class,
+//                BookController.class,
+//                PublisherController.class,
+//                ReaderController.class,
+//                com.jettra.plugin.autentification.controller.CredentialController.class,
+//                com.jettra.plugin.autentification.controller.PermissionController.class,
+//                com.jettra.plugin.autentification.controller.RoleController.class,
+//                com.jettra.plugin.autentification.controller.DepartmentController.class,
+//                com.jettra.plugin.autentification.controller.UserController.class
+//        );
         List<Class<?>> controllers = List.of(
-                AuthController.class,
-                AuthorController.class,
-                BookController.class,
-                PublisherController.class,
-                ReaderController.class,
-                com.jettra.plugin.autentification.controller.CredentialController.class,
+                     com.jettra.plugin.autentification.controller.CredentialController.class,
                 com.jettra.plugin.autentification.controller.PermissionController.class,
                 com.jettra.plugin.autentification.controller.RoleController.class,
                 com.jettra.plugin.autentification.controller.DepartmentController.class,
@@ -193,10 +195,10 @@ public class Main {
         server.addHandler("/swagger-ui", new SwaggerUIHandler("/openapi.json"));
 
         com.jettra.rest.server.JettraRestServer.register(server, AuthController.class);
-        com.jettra.rest.server.JettraRestServer.register(server, AuthorController.class);
-        com.jettra.rest.server.JettraRestServer.register(server, BookController.class);
-        com.jettra.rest.server.JettraRestServer.register(server, PublisherController.class);
-        com.jettra.rest.server.JettraRestServer.register(server, ReaderController.class);
+//        com.jettra.rest.server.JettraRestServer.register(server, AuthorController.class);
+//        com.jettra.rest.server.JettraRestServer.register(server, BookController.class);
+//        com.jettra.rest.server.JettraRestServer.register(server, PublisherController.class);
+//        com.jettra.rest.server.JettraRestServer.register(server, ReaderController.class);
         com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.CredentialController.class);
         com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.PermissionController.class);
         com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.RoleController.class);
