@@ -1,10 +1,17 @@
 package com.jettra.plugin.autentification.entity;
 
+import io.jettra.wui.validations.NotNull;
+import io.jettra.wui.validations.Size;
 import java.util.UUID;
-import java.util.Set;
 
 public record Role(
-    UUID id,
-    String name,
-    Boolean active
-) {}
+        @NotNull
+        UUID id,
+        @NotNull
+        @Size(min = 3)
+        String name,
+        @NotNull
+        Boolean active
+        ) {
+
+}

@@ -1,16 +1,27 @@
 package com.jettra.plugin.autentification.entity;
 
 import com.jettra.plugin.company.entity.Department;
+import io.jettra.wui.validations.NotNull;
+import io.jettra.wui.validations.Size;
 import java.util.UUID;
 import java.util.Set;
 
 public record User(
-    UUID id,
-    String firstName,
-    String lastName,
-    String email,
-    String phone,
-    Boolean active,
-    Set<Department> departments,
-    Set<Role> roles
-) {}
+        @NotNull
+        @Size(min = 3)
+        UUID id,
+        @NotNull
+        @Size(min = 3)
+        String firstName,
+        @NotNull
+        @Size(min = 3)
+        String lastName,
+        String email,
+        String phone,
+        Boolean active,
+        @NotNull
+        Set<Department> departments,
+        Set<Role> roles
+        ) {
+
+}

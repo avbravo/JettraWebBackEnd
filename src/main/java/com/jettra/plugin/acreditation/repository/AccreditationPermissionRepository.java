@@ -1,6 +1,5 @@
 package com.jettra.plugin.acreditation.repository;
 
-import com.jettra.jwt.enumerations.TypeAcreditationOptions;
 import com.jettra.plugin.acreditation.entity.AccreditationOption;
 import com.jettra.plugin.acreditation.entity.AccreditationPermission;
 import com.jettra.plugin.autentification.entity.Role;
@@ -40,7 +39,6 @@ public class AccreditationPermissionRepository {
             Boolean write,
             Boolean delete,
             Boolean report) {
-        //  db.add(new AccreditationOption(UUID.nameUUIDFromBytes((name).getBytes()), name, desc, path, typeAcreditationOptions));
 
         db.add(new AccreditationPermission(
                 UUID.nameUUIDFromBytes((name).getBytes()),

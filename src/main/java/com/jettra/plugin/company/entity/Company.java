@@ -4,6 +4,8 @@
  */
 package com.jettra.plugin.company.entity;
 
+import io.jettra.wui.validations.NotNull;
+import io.jettra.wui.validations.Size;
 import java.util.UUID;
 
 /**
@@ -11,8 +13,12 @@ import java.util.UUID;
  * @author avbravo
  */
 public record Company(
+            @NotNull
+        @Size(min = 3)
         UUID id,
+            @NotNull
         String name,
+                    @NotNull    
         Boolean active
         ) {
 
