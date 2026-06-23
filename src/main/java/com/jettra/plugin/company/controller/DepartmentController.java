@@ -8,7 +8,7 @@ import io.jettra.wui.core.annotations.Inject;
 import java.util.List;
 
 @Secured
-@Path("/autentification/departments")
+@Path("/autentification/departaments")
 @DeclareRoles({"ADMIN", "USER"})
 @RolesAllowed({"ADMIN"})
 public class DepartmentController {
