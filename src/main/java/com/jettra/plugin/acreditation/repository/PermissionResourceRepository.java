@@ -12,10 +12,10 @@ import java.util.UUID;
 
 public class PermissionResourceRepository {
 
-    private static List<FeatureResource> accreditationOptions = new ArrayList<>();
+    private static List<FeatureResource> featureResources = new ArrayList<>();
     private static List<PermissionResource> db = new ArrayList<>();
     @Inject
-    FeatureResourceRepository accreditationOptionsRepository;
+   static FeatureResourceRepository featureResourceRepository;
 
     @Inject
     RoleRepository roleRepository;
@@ -24,10 +24,10 @@ public class PermissionResourceRepository {
 
         List<Role> roles = RoleRepository.findAll();
 
-        accreditationOptions = FeatureResourceRepository.findAll();
+       featureResources =featureResourceRepository.findAll();
 
         for (Role r : roles) {
-            for (FeatureResource ao : accreditationOptions) {
+            for (FeatureResource ao : featureResources) {
                 addPermission(ao.name(), r, ao, Boolean.TRUE, Boolean.TRUE, Boolean.FALSE, Boolean.TRUE);
             }
         }
@@ -58,7 +58,7 @@ public class PermissionResourceRepository {
 
     public static void save(PermissionResource record) {
         if (record.id() == null) {
-            record = new PermissionResource(UUID.randomUUID(), record.role(), record.acreditationOptions(), record.reader(), record.write(),record.delete(),record.report());
+            record = new PermissionResource(UUID.randomUUID(), record.role(), record.featureResource(), record.reader(), record.write(),record.delete(),record.report());
         }
         delete(record.id().toString());
         db.add(record);

@@ -14,7 +14,7 @@ import java.util.UUID;
 public record PermissionResource(
         UUID id,
         Role role,
-        FeatureResource acreditationOptions,
+        FeatureResource featureResource,
         Boolean reader,
         Boolean write,
         Boolean delete,
