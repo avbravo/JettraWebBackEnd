@@ -34,7 +34,7 @@ public class UserDepartmentRoleResourceRepository {
         for (User u : users) {
             for (Role r : roles) {
                 for (Department d : departaments) {
-                    addPermission( u, r, d Boolean.TRUE);                
+                    addPermission(u, r, d, Boolean.TRUE);                
                   }
               }
         }
@@ -43,7 +43,7 @@ public class UserDepartmentRoleResourceRepository {
     private static void addPermission(User user, Role role, Department department, Boolean active) {
 
         db.add(new UserDerpartmentRoleResource(
-                UUID.nameUUIDFromBytes(user.name().getBytes()),
+                UUID.nameUUIDFromBytes(user.firstName().getBytes()),
                 user,
                 role,
                 department,
@@ -61,8 +61,9 @@ public class UserDepartmentRoleResourceRepository {
             record = new UserDerpartmentRoleResource(
                     UUID.randomUUID(),
                     record.user(),
+                     record.role(),
                     record.departament(),
-                    record.role(),
+                   
                     record.active()
             );
         }

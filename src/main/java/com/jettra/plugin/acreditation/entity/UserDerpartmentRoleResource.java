@@ -24,9 +24,9 @@ public record UserDerpartmentRoleResource(
         @NotNull
         User user,
         @NotNull
-        Department departament,
-        @NotNull
         Role role,
+        @NotNull
+        Department departament,
         @NotNull
         Boolean active
         ) {
