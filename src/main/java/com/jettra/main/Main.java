@@ -183,7 +183,6 @@ public class Main {
         List<Class<?>> controllers = List.of(
                 com.jettra.plugin.autentification.controller.AuthentificationController.class,
                 com.jettra.plugin.autentification.controller.CredentialController.class,
-                com.jettra.plugin.autentification.controller.PermissionController.class,
                 com.jettra.plugin.autentification.controller.RoleController.class,
                 com.jettra.plugin.autentification.controller.DepartmentController.class,
                 com.jettra.plugin.autentification.controller.UserController.class,
@@ -204,7 +203,6 @@ public class Main {
 //        com.jettra.rest.server.JettraRestServer.register(server, ReaderController.class);
         com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.AuthentificationController.class);
         com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.CredentialController.class);
-        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.PermissionController.class);
         com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.RoleController.class);
         com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.DepartmentController.class);
         com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.UserController.class);
