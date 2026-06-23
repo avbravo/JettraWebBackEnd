@@ -11,10 +11,10 @@ import java.util.UUID;
  *
  * @author avbravo
  */
-public record AccreditationPermission(
+public record PermissionResource(
         UUID id,
         Role role,
-        AccreditationOption acreditationOptions,
+        FeatureResource acreditationOptions,
         Boolean reader,
         Boolean write,
         Boolean delete,

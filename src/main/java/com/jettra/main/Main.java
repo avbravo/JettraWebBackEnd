@@ -187,8 +187,8 @@ public class Main {
                 com.jettra.plugin.company.controller.DepartmentController.class,
                 com.jettra.plugin.autentification.controller.UserController.class,
                 //Accreditation
-                com.jettra.plugin.acreditation.controller.AccreditationOptionController.class,
-                com.jettra.plugin.acreditation.controller.AccreditationPermissionController.class,
+                com.jettra.plugin.acreditation.controller.FeatureResourceController.class,
+                com.jettra.plugin.acreditation.controller.PermissionResourceController.class,
                 //Company
                 com.jettra.plugin.company.controller.CompanyController.class,
                 com.jettra.plugin.company.controller.DepartmentController.class,
@@ -209,8 +209,8 @@ public class Main {
         com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.RoleController.class);
         com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.UserController.class);
         //Acreditation
-        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.acreditation.controller.AccreditationOptionController.class);
-        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.acreditation.controller.AccreditationPermissionController.class);
+        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.acreditation.controller.FeatureResourceController.class);
+        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.acreditation.controller.PermissionResourceController.class);
         //Company
         com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.company.controller.CompanyController.class);
         com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.company.controller.DepartmentController.class);

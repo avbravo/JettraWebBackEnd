@@ -1,29 +1,29 @@
 package com.jettra.plugin.acreditation.controller;
 
-import com.jettra.plugin.acreditation.entity.AccreditationPermission;
-import com.jettra.plugin.acreditation.repository.AccreditationPermissionRepository;
+import com.jettra.plugin.acreditation.entity.PermissionResource;
+import com.jettra.plugin.acreditation.repository.PermissionResourceRepository;
 import com.jettra.rest.annotations.*;
 import com.jettra.rest.core.Response;
 import io.jettra.wui.core.annotations.Inject;
 import java.util.List;
 
 @Secured
-@Path("/autentification/accreditationPermissions")
+@Path("/autentification/permissionresources")
 @DeclareRoles({"ADMIN", "USER"})
 @RolesAllowed({"ADMIN"})
-public class AccreditationPermissionController {
+public class PermissionResourceController {
 @Inject
-   AccreditationPermissionRepository accreditationPermissionRepository;
+   PermissionResourceRepository accreditationPermissionRepository;
     @GET
     @Produces("application/json")
-    public List<AccreditationPermission> findAll() {
+    public List<PermissionResource> findAll() {
         return accreditationPermissionRepository.findAll();
     }
 
     @POST
     @Consumes("application/json")
     @Produces("application/json")
-    public Response save(AccreditationPermission accreditationPermission) {
+    public Response save(PermissionResource accreditationPermission) {
         accreditationPermissionRepository.save(accreditationPermission);
         return Response.ok("Saved successfully").build();
     }

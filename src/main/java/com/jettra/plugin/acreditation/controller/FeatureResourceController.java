@@ -1,29 +1,29 @@
 package com.jettra.plugin.acreditation.controller;
 
-import com.jettra.plugin.acreditation.entity.AccreditationOption;
-import com.jettra.plugin.acreditation.repository.AccreditationOptionRepository;
+import com.jettra.plugin.acreditation.entity.FeatureResource;
+import com.jettra.plugin.acreditation.repository.FeatureResourceRepository;
 import com.jettra.rest.annotations.*;
 import com.jettra.rest.core.Response;
 import io.jettra.wui.core.annotations.Inject;
 import java.util.List;
 
 @Secured
-@Path("/autentification/accreditationOptions")
+@Path("/autentification/featureresources")
 @DeclareRoles({"ADMIN", "USER"})
 @RolesAllowed({"ADMIN"})
-public class AccreditationOptionController {
+public class FeatureResourceController {
 @Inject
-   AccreditationOptionRepository accreditationOptionRepository;
+   FeatureResourceRepository accreditationOptionRepository;
     @GET
     @Produces("application/json")
-    public List<AccreditationOption> findAll() {
+    public List<FeatureResource> findAll() {
         return accreditationOptionRepository.findAll();
     }
 
     @POST
     @Consumes("application/json")
     @Produces("application/json")
-    public Response save(AccreditationOption accreditationOption) {
+    public Response save(FeatureResource accreditationOption) {
         accreditationOptionRepository.save(accreditationOption);
         return Response.ok("Saved successfully").build();
     }

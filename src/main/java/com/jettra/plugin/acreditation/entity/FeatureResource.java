@@ -1,14 +1,14 @@
 package com.jettra.plugin.acreditation.entity;
 
-import com.jettra.jwt.enumerations.TypeAcreditationOptions;
+import com.jettra.jwt.enumerations.TypeFeatureResource;
 import java.util.UUID;
 
-public record AccreditationOption(
+public record FeatureResource(
         UUID id,
         String name,
         String description,
         String resourcePath,
-        TypeAcreditationOptions typeAcreditationOptions
+        TypeFeatureResource typeFeatureResource
         ) {
 
 }
