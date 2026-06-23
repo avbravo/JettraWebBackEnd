@@ -6,5 +6,5 @@ import java.util.Set;
 public record Role(
     UUID id,
     String name,
-    Set<Permission> permissions
+    Boolean active
 ) {}

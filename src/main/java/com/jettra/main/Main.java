@@ -4,6 +4,7 @@
 package com.jettra.main;
 
 import com.jettra.main.jwt.AuthController;
+import com.jettra.plugin.acreditation.controller.AccreditationOptionController;
 import com.jettra.server.JettraServer;
 import com.jettra.server.config.JettraConfigProperty;
 import com.jettra.server.config.ConfigInjector;
@@ -185,7 +186,9 @@ public class Main {
                 com.jettra.plugin.autentification.controller.PermissionController.class,
                 com.jettra.plugin.autentification.controller.RoleController.class,
                 com.jettra.plugin.autentification.controller.DepartmentController.class,
-                com.jettra.plugin.autentification.controller.UserController.class
+                com.jettra.plugin.autentification.controller.UserController.class,
+                com.jettra.plugin.acreditation.controller.AccreditationOptionController.class,
+                com.jettra.plugin.acreditation.controller.AccreditationPermissionController.class
         );
 
         // Exponer el JSON de OpenAPI
@@ -205,6 +208,10 @@ public class Main {
         com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.RoleController.class);
         com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.DepartmentController.class);
         com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.UserController.class);
+        //Acreditation
+            com.jettra.rest.server.JettraRestServer.register(server,  com.jettra.plugin.acreditation.controller.AccreditationOptionController.class);
+            com.jettra.rest.server.JettraRestServer.register(server,  com.jettra.plugin.acreditation.controller.AccreditationPermissionController.class);
+        
 
         server.start();
     }
