@@ -1,5 +1,6 @@
 package com.jettra.plugin.autentification.entity;
 
+import com.jettra.plugin.company.entity.Department;
 import java.util.UUID;
 import java.util.Set;
 
@@ -10,6 +11,6 @@ public record User(
     String email,
     String phone,
     Boolean active,
-    Department department,
+    Set<Department> departments,
     Set<Role> roles
 ) {}

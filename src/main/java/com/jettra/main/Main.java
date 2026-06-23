@@ -4,7 +4,6 @@
 package com.jettra.main;
 
 import com.jettra.main.jwt.AuthController;
-import com.jettra.plugin.acreditation.controller.AccreditationOptionController;
 import com.jettra.server.JettraServer;
 import com.jettra.server.config.JettraConfigProperty;
 import com.jettra.server.config.ConfigInjector;
@@ -181,13 +180,20 @@ public class Main {
 //                com.jettra.plugin.autentification.controller.UserController.class
 //        );
         List<Class<?>> controllers = List.of(
+                //Autentification
                 com.jettra.plugin.autentification.controller.AuthentificationController.class,
                 com.jettra.plugin.autentification.controller.CredentialController.class,
                 com.jettra.plugin.autentification.controller.RoleController.class,
-                com.jettra.plugin.autentification.controller.DepartmentController.class,
+                com.jettra.plugin.company.controller.DepartmentController.class,
                 com.jettra.plugin.autentification.controller.UserController.class,
+                //Accreditation
                 com.jettra.plugin.acreditation.controller.AccreditationOptionController.class,
-                com.jettra.plugin.acreditation.controller.AccreditationPermissionController.class
+                com.jettra.plugin.acreditation.controller.AccreditationPermissionController.class,
+                //Company
+                com.jettra.plugin.company.controller.CompanyController.class,
+                com.jettra.plugin.company.controller.DepartmentController.class,
+                com.jettra.plugin.company.controller.HeadquartersController.class
+                
         );
 
         // Exponer el JSON de OpenAPI
@@ -197,19 +203,18 @@ public class Main {
         server.addHandler("/swagger-ui", new SwaggerUIHandler("/openapi.json"));
 
         com.jettra.rest.server.JettraRestServer.register(server, AuthController.class);
-//        com.jettra.rest.server.JettraRestServer.register(server, AuthorController.class);
-//        com.jettra.rest.server.JettraRestServer.register(server, BookController.class);
-//        com.jettra.rest.server.JettraRestServer.register(server, PublisherController.class);
-//        com.jettra.rest.server.JettraRestServer.register(server, ReaderController.class);
+//Autentification
         com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.AuthentificationController.class);
         com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.CredentialController.class);
         com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.RoleController.class);
-        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.DepartmentController.class);
         com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.UserController.class);
         //Acreditation
-            com.jettra.rest.server.JettraRestServer.register(server,  com.jettra.plugin.acreditation.controller.AccreditationOptionController.class);
-            com.jettra.rest.server.JettraRestServer.register(server,  com.jettra.plugin.acreditation.controller.AccreditationPermissionController.class);
-        
+        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.acreditation.controller.AccreditationOptionController.class);
+        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.acreditation.controller.AccreditationPermissionController.class);
+        //Company
+        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.company.controller.CompanyController.class);
+        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.company.controller.DepartmentController.class);
+        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.company.controller.HeadquartersController.class);
 
         server.start();
     }

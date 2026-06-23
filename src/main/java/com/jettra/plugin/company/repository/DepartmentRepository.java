@@ -1,6 +1,6 @@
-package com.jettra.plugin.autentification.repository;
+package com.jettra.plugin.company.repository;
 
-import com.jettra.plugin.autentification.entity.Department;
+import com.jettra.plugin.company.entity.Department;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

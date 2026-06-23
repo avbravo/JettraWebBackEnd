@@ -1,7 +1,7 @@
-package com.jettra.plugin.autentification.controller;
+package com.jettra.plugin.company.controller;
 
-import com.jettra.plugin.autentification.entity.Department;
-import com.jettra.plugin.autentification.repository.DepartmentRepository;
+import com.jettra.plugin.company.entity.Department;
+import com.jettra.plugin.company.repository.DepartmentRepository;
 import com.jettra.rest.annotations.*;
 import com.jettra.rest.core.Response;
 import io.jettra.wui.core.annotations.Inject;

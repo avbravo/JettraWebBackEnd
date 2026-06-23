@@ -41,7 +41,7 @@ public class UserRepository {
 
     public static void save(User record) {
         if (record.id() == null) {
-            record = new User(UUID.randomUUID(), record.firstName(), record.lastName(), record.email(), record.phone(), record.active(), record.department(), record.roles());
+            record = new User(UUID.randomUUID(), record.firstName(), record.lastName(), record.email(), record.phone(), record.active(), record.departments(), record.roles());
         }
         delete(record.id().toString());
         db.add(record);
