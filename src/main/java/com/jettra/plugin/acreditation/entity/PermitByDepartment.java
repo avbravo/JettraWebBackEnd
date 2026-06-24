@@ -17,7 +17,7 @@ import java.util.UUID;
  * Se usa para casos en los que las validaciones son necesarias para usuarios
  * con varios roles por departamento.
  */
-public record UserDerpartmentRoleResource(
+public record PermitByDepartment(
         @NotNull
         @Size(min = 3)
         UUID id,

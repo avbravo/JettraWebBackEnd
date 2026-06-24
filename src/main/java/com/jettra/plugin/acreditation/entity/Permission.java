@@ -11,10 +11,10 @@ import java.util.UUID;
  *
  * @author avbravo
  */
-public record PermissionResource(
+public record Permission(
         UUID id,
         Role role,
-        FeatureResource featureResource,
+        Feature featureResource,
         Boolean reader,
         Boolean write,
         Boolean delete,

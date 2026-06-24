@@ -1,7 +1,7 @@
 package com.jettra.plugin.acreditation.controller;
 
-import com.jettra.plugin.acreditation.entity.PermissionResource;
-import com.jettra.plugin.acreditation.repository.PermissionResourceRepository;
+import com.jettra.plugin.acreditation.entity.Permission;
+import com.jettra.plugin.acreditation.repository.PermissionRepository;
 import com.jettra.rest.annotations.*;
 import com.jettra.rest.core.Response;
 import io.jettra.wui.core.annotations.Inject;
@@ -11,20 +11,20 @@ import java.util.List;
 @Path("/autentification/permissionresources")
 @DeclareRoles({"ADMIN", "USER"})
 @RolesAllowed({"ADMIN"})
-public class PermissionResourceController {
+public class PermissionController {
 @Inject
-   PermissionResourceRepository accreditationPermissionRepository;
+   PermissionRepository permissionResourceRepository;
     @GET
     @Produces("application/json")
-    public List<PermissionResource> findAll() {
-        return accreditationPermissionRepository.findAll();
+    public List<Permission> findAll() {
+        return permissionResourceRepository.findAll();
     }
 
     @POST
     @Consumes("application/json")
     @Produces("application/json")
-    public Response save(PermissionResource accreditationPermission) {
-        accreditationPermissionRepository.save(accreditationPermission);
+    public Response save(Permission accreditationPermission) {
+        permissionResourceRepository.save(accreditationPermission);
         return Response.ok("Saved successfully").build();
     }
 
@@ -32,7 +32,7 @@ public class PermissionResourceController {
     @Path("/{id}")
     @Produces("application/json")
     public Response delete(@PathParam("id") String id) {
-        accreditationPermissionRepository.delete(id);
+        permissionResourceRepository.delete(id);
         return Response.ok("Deleted successfully").build();
     }
 }

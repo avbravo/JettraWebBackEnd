@@ -1,6 +1,6 @@
 package com.jettra.plugin.acreditation.repository;
 
-import com.jettra.plugin.acreditation.entity.UserDerpartmentRoleResource;
+import com.jettra.plugin.acreditation.entity.PermitByDepartment;
 
 import com.jettra.plugin.autentification.entity.Role;
 import com.jettra.plugin.autentification.entity.User;
@@ -14,10 +14,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-public class UserDepartmentRoleResourceRepository {
+public class PermitByDepartmentRepository {
 
     // private static List<FeatureResource> featureResources = new ArrayList<>();
-    private static List<UserDerpartmentRoleResource> db = new ArrayList<>();
+    private static List<PermitByDepartment> db = new ArrayList<>();
     @Inject
     static DepartmentRepository deparmentRepository;
     @Inject
@@ -42,7 +42,7 @@ public class UserDepartmentRoleResourceRepository {
 
     private static void addPermission(User user, Role role, Department department, Boolean active) {
 
-        db.add(new UserDerpartmentRoleResource(
+        db.add(new PermitByDepartment(
                 UUID.nameUUIDFromBytes(user.firstName().getBytes()),
                 user,
                 role,
@@ -52,13 +52,13 @@ public class UserDepartmentRoleResourceRepository {
 
     }
 
-    public static List<UserDerpartmentRoleResource> findAll() {
+    public static List<PermitByDepartment> findAll() {
         return new ArrayList<>(db);
     }
 
-    public static void save(UserDerpartmentRoleResource record) {
+    public static void save(PermitByDepartment record) {
         if (record.id() == null) {
-            record = new UserDerpartmentRoleResource(
+            record = new PermitByDepartment(
                     UUID.randomUUID(),
                     record.user(),
                      record.role(),
@@ -76,7 +76,7 @@ public class UserDepartmentRoleResourceRepository {
         db.removeIf(r -> r.id().toString().equals(id));
     }
 
-    public static Optional<UserDerpartmentRoleResource> findById(String id) {
+    public static Optional<PermitByDepartment> findById(String id) {
         return db.stream().filter(r -> r.id().toString().equals(id)).findFirst();
     }
 }

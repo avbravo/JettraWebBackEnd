@@ -41,144 +41,7 @@ public class Main {
         server.addHandler("/error", io.jettra.wui.complex.ErrorPage.class);
         server.addHandler("/swagger-ui", io.jettra.wui.complex.SwaggerUIPage.class);
 
-        // IMPORTANTE / DOCUMENTACIÓN:
-        // Todas las páginas creadas deben registrarse obligatoriamente en este método
-        // main
-        // usando server.addHandler(). Esto permite que JettraServer reconozca las rutas
-        // HTTP
-        // y establezca el contexto correcto. Si se omite, se generarán errores de "404
-        // Not Found"
-        // o "No context found" al intentar cargar la vista o manejar peticiones de
-        // Formularios.
-        // Register pages as classes to ensure a fresh, isolated instance per request
-//        server.addHandler("/", LoginPage.class);
-//        server.addHandler("/alert", AlertPage.class);
-//        server.addHandler("/author", AuthorPage.class);
-//        server.addHandler("/avatar", AvatarPage.class);
-//        server.addHandler("/avatargroup", AvatarGroupPage.class);
-//        server.addHandler("/barcode", BarCodePage.class);
-//        server.addHandler("/board", BoardPage.class);
-//        server.addHandler("/book", BookPage.class);
-//        server.addHandler("/button", ButtonPage.class);
-//        server.addHandler("/calendar", CalendarPage.class);
-//        server.addHandler("/cancion", CancionPage.class);
-//        server.addHandler("/card", CardPage.class);
-//        server.addHandler("/carousel", CarouselPage.class);
-//        server.addHandler("/checkbox", CheckBoxPage.class);
-//        server.addHandler("/checkboxgroup", CheckBoxGroupPage.class);
-//        server.addHandler("/clock", ClockPage.class);
-//        server.addHandler("/catcha", CatchaPage.class);
-//        server.addHandler("/creditcard", CreditCardPage.class);
-//        server.addHandler("/formgroup", FormGroupPage.class);
-//        server.addHandler("/dashboard", DashboardPage.class);
-//        server.addHandler("/header", HeaderPage.class);
-//        server.addHandler("/icon", IconPage.class);
-//        server.addHandler("/icons", IconsPage.class);
-//        server.addHandler("/draw", DrawPage.class);
-//        server.addHandler("/deporte", DeportePage.class);
-//        server.addHandler("/kanban", KanbanPage.class);
-//        server.addHandler("/image", ImagePage.class);
-//        server.addHandler("/layoutdisplay", LayoutDisplayPage.class);
-//        server.addHandler("/login", LoginPage.class);
-//        server.addHandler("/logout", LoginPage.class);
-//        server.addHandler("/loading", LoadingPage.class);
-//        server.addHandler("/console", ConsolePage.class);
-//        server.addHandler("/datepicker", DatePickerPage.class);
-//        server.addHandler("/datatable", DataTablePage.class);
-//        server.addHandler("/datatableeditable", DatatableEditablePage.class);
-//        server.addHandler("/label", LabelPage.class);
-//        server.addHandler("/link", LinkPage.class);
-//        server.addHandler("/organigram", OrganigramPage.class);
-//        server.addHandler("/paragraph", ParagraphPage.class);
-//        server.addHandler("/radiobutton", RadioButtonPage.class);
-//        server.addHandler("/reader", ReaderPage.class);
-//
-//        server.addHandler("/selectone", SelectOnePage.class);
-//        server.addHandler("/selectmany", SelectManyPage.class);
-//        server.addHandler("/schedule", SchedulePage.class);
-//
-//        server.addHandler("/textbox", TextBoxPage.class);
-//        server.addHandler("/time", TimePage.class);
-//        server.addHandler("/timeline", TimelinePage.class);
-//        server.addHandler("/toggleswitch", ToggleSwitchPage.class);
-//        server.addHandler("/modal", ModalPage.class);
-//        server.addHandler("/notification", NotificationPage.class);
-//        server.addHandler("/menubar", MenuBarPage.class);
-//        server.addHandler("/persona", PersonaPage.class);
-//        server.addHandler("/publisher", PublisherPage.class);
-//        server.addHandler("/selectoneicon", SelectOneIconPage.class);
-//        server.addHandler("/grid", GridPage.class);
-//        server.addHandler("/sessiontimeout", SessionTimeoutDialogPage.class);
-//        server.addHandler("/loginadvanced", LoginAdvancedPage.class);
-//        server.addHandler("/div", DivPage.class);
-//        server.addHandler("/span", SpanPage.class);
-//        server.addHandler("/form", FormPage.class);
-//        server.addHandler("/menu", MenuPage.class);
-//        server.addHandler("/separator", SeparatorPage.class);
-//        server.addHandler("/tabview", TabViewPage.class);
-//        server.addHandler("/spinner", SpinnerPage.class);
-//        server.addHandler("/pais", PaisPage.class);
-//        server.addHandler("/webdesigner", WebDesignerPage.class);
-//        server.addHandler("/map", MapPage.class);
-//        server.addHandler("/panel", PanelPage.class);
-//        server.addHandler("/tree", TreePage.class);
-//        server.addHandler("/divide", DividePage.class);
-//        server.addHandler("/fileupload", FileUploadPage.class);
-//        server.addHandler("/folderselector", FolderSelectorPage.class);
-//        server.addHandler("/forms", FormsPage.class);
-//        server.addHandler("/progressbar", ProgressBarPage.class);
-//        server.addHandler("/textarea", TextAreaPage.class);
-//        server.addHandler("/navigation", NavigationPage.class);
-//        server.addHandler("/feedback", FeedbackPage.class);
-//        server.addHandler("/typography", TypographyPage.class);
-//        server.addHandler("/downloader", DownloaderPage.class);
-//        server.addHandler("/pdfviewer", PDFViewerPage.class);
-//        server.addHandler("/viewmedia", ViewMediaPage.class);
-//        server.addHandler("/chartsdoughnut", ChartsDoughnutPage.class);
-//        server.addHandler("/chartsbar", ChartsBarPage.class);
-//        server.addHandler("/chartspie", ChartsPiePage.class);
-//        server.addHandler("/chartsradar", ChartsRadarPage.class);
-//        server.addHandler("/chartsline", ChartsLinePage.class);
-//        server.addHandler("/schedulecontrol", ScheduleControlPage.class);
-//        server.addHandler("/qr", QRPage.class);
-//        server.addHandler("/qrreader", QRReaderPage.class);
-//        server.addHandler("/otpvalidator", OTPValidatorPage.class);
-//        server.addHandler("/trafficlight", TrafficLightPage.class);
-//        server.addHandler("/planeta", PlanetaPage.class);
-//        server.addHandler("/grupo", GrupoPage.class);
-//        server.addHandler("/subgrupo", SubGrupoPage.class);
-//        server.addHandler("/reglas", ReglasPage.class);
-//        server.addHandler("/reglasview", ReglasViewCrudPage.class);
-//        server.addHandler("/reglaspage", ReglasPage.class);
-//        server.addHandler("/reglasviewcrudpage", ReglasViewCrudPage.class);
-//        server.addHandler("/datatableeditablecrudview", DatatableEditableCrudViewPage.class);
-//        server.addHandler("/hidden", HiddenPage.class);
-//        server.addHandler("/noeditable", NoEditablePage.class);
-//        server.addHandler("/viewdatatable", ViewDataTablePage.class);
-//        server.addHandler("/permiso", PermisoPage.class);
-//        server.addHandler("/rol", RolPage.class);
-//        server.addHandler("/perfil", PerfilPage.class);
-//        server.addHandler("/usuario", UsuarioPage.class);
-//
-//        // Registered authentication/credentials plugin handlers
-//        server.addHandler("/credential", CredentialPage.class);
-//        server.addHandler("/permission", com.jettra.plugin.autentification.pages.PermissionPage.class);
-//        server.addHandler("/role", com.jettra.plugin.autentification.pages.RolePage.class);
-//        server.addHandler("/department", com.jettra.plugin.autentification.pages.DepartmentPage.class);
-//        server.addHandler("/user", com.jettra.plugin.autentification.pages.UserPage.class);
-        // Define la lista de controladores REST que deseas documentar
-//        List<Class<?>> controllers = List.of(
-//                AuthController.class,
-//                AuthorController.class,
-//                BookController.class,
-//                PublisherController.class,
-//                ReaderController.class,
-//                com.jettra.plugin.autentification.controller.CredentialController.class,
-//                com.jettra.plugin.autentification.controller.PermissionController.class,
-//                com.jettra.plugin.autentification.controller.RoleController.class,
-//                com.jettra.plugin.autentification.controller.DepartmentController.class,
-//                com.jettra.plugin.autentification.controller.UserController.class
-//        );
+
         List<Class<?>> controllers = List.of(
                 //Autentification
                 com.jettra.plugin.autentification.controller.AuthentificationController.class,
@@ -187,8 +50,9 @@ public class Main {
                 com.jettra.plugin.company.controller.DepartmentController.class,
                 com.jettra.plugin.autentification.controller.UserController.class,
                 //Accreditation
-                com.jettra.plugin.acreditation.controller.FeatureResourceController.class,
-                com.jettra.plugin.acreditation.controller.PermissionResourceController.class,
+                com.jettra.plugin.acreditation.controller.FeatureController.class,
+                com.jettra.plugin.acreditation.controller.PermissionController.class,
+                com.jettra.plugin.acreditation.controller.PermitByDepartmentController.class,
                 //Company
                 com.jettra.plugin.company.controller.CompanyController.class,
                 com.jettra.plugin.company.controller.DepartmentController.class,
@@ -209,8 +73,9 @@ public class Main {
         com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.RoleController.class);
         com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.UserController.class);
         //Acreditation
-        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.acreditation.controller.FeatureResourceController.class);
-        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.acreditation.controller.PermissionResourceController.class);
+        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.acreditation.controller.FeatureController.class);
+        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.acreditation.controller.PermissionController.class);
+        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.acreditation.controller.PermitByDepartmentController.class);
         //Company
         com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.company.controller.CompanyController.class);
         com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.company.controller.DepartmentController.class);

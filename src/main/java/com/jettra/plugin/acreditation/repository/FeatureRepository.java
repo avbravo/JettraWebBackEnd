@@ -1,14 +1,14 @@
 package com.jettra.plugin.acreditation.repository;
 
 import com.jettra.jwt.enumerations.TypeFeatureResource;
-import com.jettra.plugin.acreditation.entity.FeatureResource;
+import com.jettra.plugin.acreditation.entity.Feature;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-public class FeatureResourceRepository {
-    private static final List<FeatureResource> db = new ArrayList<>();
+public class FeatureRepository {
+    private static final List<Feature> db = new ArrayList<>();
 
     static {
         // Navigation / Administration / Credentials (secured/restricted)
@@ -59,17 +59,17 @@ public class FeatureResourceRepository {
     }
 
     private static void addOptions(String name, String desc, String path,TypeFeatureResource typeFeatureResource) {
-        db.add(new FeatureResource(UUID.nameUUIDFromBytes((name ).getBytes()), name , desc , path,typeFeatureResource));
+        db.add(new Feature(UUID.nameUUIDFromBytes((name ).getBytes()), name , desc , path,typeFeatureResource));
         
     }
 
-    public static List<FeatureResource> findAll() {
+    public static List<Feature> findAll() {
         return new ArrayList<>(db);
     }
 
-    public static void save(FeatureResource record) {
+    public static void save(Feature record) {
         if (record.id() == null) {
-            record = new FeatureResource(UUID.randomUUID(), record.name(), record.description(), record.resourcePath(),record.typeFeatureResource());
+            record = new Feature(UUID.randomUUID(), record.name(), record.description(), record.resourcePath(),record.typeFeatureResource());
         }
         delete(record.id().toString());
         db.add(record);
@@ -79,7 +79,7 @@ public class FeatureResourceRepository {
         db.removeIf(r -> r.id().toString().equals(id));
     }
 
-    public static Optional<FeatureResource> findById(String id) {
+    public static Optional<Feature> findById(String id) {
         return db.stream().filter(r -> r.id().toString().equals(id)).findFirst();
     }
 }
