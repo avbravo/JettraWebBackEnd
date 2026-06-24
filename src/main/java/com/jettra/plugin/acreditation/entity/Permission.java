@@ -4,7 +4,6 @@
  */
 package com.jettra.plugin.acreditation.entity;
 
-import com.jettra.plugin.autentification.entity.Role;
 import java.util.UUID;
 
 /**

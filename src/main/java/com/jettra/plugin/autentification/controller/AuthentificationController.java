@@ -1,7 +1,7 @@
 package com.jettra.plugin.autentification.controller;
 
 import com.jettra.jwt.JettraJWT;
-import com.jettra.main.jwt.LoginResponse;
+import com.jettra.jwt.request.LoginResponse;
 import com.jettra.rest.annotations.GET;
 import com.jettra.rest.annotations.Path;
 import com.jettra.rest.annotations.PermitAll;
@@ -66,7 +66,7 @@ public class AuthentificationController {
 
         // Fetch User using UserRepository to validate/hydrate User
       //   UUID uuid = UUID.fromString(id);
-        Optional<JUser> optUser = jUserRepository.findById(UUID.fromString(optCred.get().juser().id().toString()));
+        Optional<JUser> optUser = jUserRepository.findById(UUID.fromString(optCred.get().jUser().id().toString()));
         if (optUser.isEmpty()) {
             return Response.status(Response.Status.UNAUTHORIZED).entity("{\"error\":\"User not found in UserRepository\"}").build();
         }

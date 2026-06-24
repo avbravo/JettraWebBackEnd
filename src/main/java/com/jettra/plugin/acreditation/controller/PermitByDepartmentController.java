@@ -9,7 +9,7 @@ import java.util.List;
 
 @Secured
 @Path("/autentification/featureresources")
-@DeclareRoles({"ADMIN", "USER"})
+@DeclareRoles({"ADMIN", "MANAGER"})
 @RolesAllowed({"ADMIN"})
 public class PermitByDepartmentController {
 @Inject

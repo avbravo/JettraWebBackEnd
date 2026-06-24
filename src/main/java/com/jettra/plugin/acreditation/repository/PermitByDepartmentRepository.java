@@ -2,10 +2,8 @@ package com.jettra.plugin.acreditation.repository;
 
 import com.jettra.plugin.acreditation.entity.PermitByDepartment;
 
-import com.jettra.plugin.autentification.entity.Role;
-import com.jettra.plugin.autentification.entity.User;
-import com.jettra.plugin.autentification.repository.RoleRepository;
-import com.jettra.plugin.autentification.repository.UserRepository;
+import com.jettra.plugin.acreditation.entity.Role;
+import com.jettra.plugin.acreditation.entity.User;
 import com.jettra.plugin.company.entity.Department;
 import com.jettra.plugin.company.repository.DepartmentRepository;
 import io.jettra.wui.core.annotations.Inject;

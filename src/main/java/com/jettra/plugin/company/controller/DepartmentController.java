@@ -9,7 +9,7 @@ import java.util.List;
 
 @Secured
 @Path("/autentification/departaments")
-@DeclareRoles({"ADMIN", "USER"})
+@DeclareRoles({"ADMIN", "MANAGER"})
 @RolesAllowed({"ADMIN"})
 public class DepartmentController {
 

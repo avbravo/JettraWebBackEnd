@@ -1,4 +1,4 @@
-package com.jettra.plugin.autentification.entity;
+package com.jettra.plugin.acreditation.entity;
 
 import com.jettra.plugin.company.entity.Department;
 import io.jettra.wui.validations.NotNull;

@@ -2,8 +2,7 @@ package com.jettra.plugin.acreditation.repository;
 
 import com.jettra.plugin.acreditation.entity.Feature;
 import com.jettra.plugin.acreditation.entity.Permission;
-import com.jettra.plugin.autentification.entity.Role;
-import com.jettra.plugin.autentification.repository.RoleRepository;
+import com.jettra.plugin.acreditation.entity.Role;
 import io.jettra.wui.core.annotations.Inject;
 import java.util.ArrayList;
 import java.util.List;

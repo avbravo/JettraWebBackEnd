@@ -1,6 +1,6 @@
-package com.jettra.plugin.autentification.repository;
+package com.jettra.plugin.acreditation.repository;
 
-import com.jettra.plugin.autentification.entity.Role;
+import com.jettra.plugin.acreditation.entity.Role;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
