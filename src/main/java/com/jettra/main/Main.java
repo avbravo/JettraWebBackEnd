@@ -47,7 +47,13 @@ public class Main {
 
 
         List<Class<?>> controllers = List.of(
-                //Autentification
+                
+// JettraAutentification
+                    com.jettra.plugin.autentification.controller.AuthentificationController.class,   
+                 com.jettra.plugin.autentification.controller.JCredentialController.class,
+                com.jettra.plugin.autentification.controller.JRoleController.class,
+                com.jettra.plugin.autentification.controller.JUserController.class,
+//Autentification
                 com.jettra.plugin.autentification.controller.AuthentificationController.class,
                 com.jettra.plugin.autentification.controller.CredentialController.class,
                 com.jettra.plugin.autentification.controller.RoleController.class,
@@ -70,9 +76,17 @@ public class Main {
         // Exponer la interfaz Swagger UI
         server.addHandler("/swagger-ui", new SwaggerUIHandler("/openapi.json"));
 
+        //JettraAutentification
         com.jettra.rest.server.JettraRestServer.register(server, AuthController.class);
+
+ com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.AuthentificationController.class);
+        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.JCredentialController.class);
+        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.JRoleController.class);
+        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.JUserController.class);
+
+
 //Autentification
-        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.AuthentificationController.class);
+        
         com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.CredentialController.class);
         com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.RoleController.class);
         com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.UserController.class);
