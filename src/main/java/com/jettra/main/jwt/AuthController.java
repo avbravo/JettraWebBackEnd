@@ -17,7 +17,7 @@ import com.jettra.server.openapi.annotations.OpenApi;
 import com.jettra.server.openapi.annotations.Operation;
 import com.jettra.server.openapi.annotations.RequestBody;
 import com.jettra.server.openapi.annotations.ApiResponse;
-import io.jettra.wui.core.annotations.Inject;
+import com.jettra.core.inject.annotation.Inject;
 
 import java.util.HashMap;
 

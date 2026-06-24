@@ -2,7 +2,7 @@ package com.jettra.plugin.company.repository;
 
 import com.jettra.plugin.company.entity.Company;
 import com.jettra.plugin.company.entity.Headquarters;
-import io.jettra.wui.core.annotations.Inject;
+import com.jettra.core.inject.annotation.Inject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

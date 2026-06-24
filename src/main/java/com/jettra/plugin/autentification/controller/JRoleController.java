@@ -6,7 +6,7 @@ import com.jettra.rest.annotations.*;
 import com.jettra.rest.core.Response;
 import com.jettra.server.autentification.entity.JRole;
 import com.jettra.server.autentification.repository.JRoleRepository;
-import io.jettra.wui.core.annotations.Inject;
+import com.jettra.core.inject.annotation.Inject;
 import java.util.List;
 import java.util.UUID;
 

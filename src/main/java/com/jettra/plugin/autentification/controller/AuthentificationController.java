@@ -30,10 +30,10 @@ public class AuthentificationController {
     private static final String JWT_SECRET = "default_secret_key_jettra_rest_2026";
     private static final long JWT_EXPIRATION = 3600000;
 
-        @io.jettra.wui.core.annotations.Inject
+        @com.jettra.core.inject.annotation.Inject
     private JCredentialRepository jCredentialRepository;
         
-        @io.jettra.wui.core.annotations.Inject
+        @com.jettra.core.inject.annotation.Inject
     private JUserRepository jUserRepository;
         
         

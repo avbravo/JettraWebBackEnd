@@ -6,7 +6,7 @@ import com.jettra.plugin.acreditation.entity.PermitByDepartment;
 import com.jettra.plugin.acreditation.repository.PermitByDepartmentRepository;
 import com.jettra.rest.annotations.*;
 import com.jettra.rest.core.Response;
-import io.jettra.wui.core.annotations.Inject;
+import com.jettra.core.inject.annotation.Inject;
 import java.util.List;
 
 @Secured

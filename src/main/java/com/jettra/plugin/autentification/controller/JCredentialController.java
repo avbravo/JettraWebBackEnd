@@ -6,7 +6,7 @@ import com.jettra.server.autentification.entity.JCredential;
 import com.jettra.server.autentification.repository.JCredentialRepository;
 import com.jettra.rest.annotations.*;
 import com.jettra.rest.core.Response;
-import io.jettra.wui.core.annotations.Inject;
+import com.jettra.core.inject.annotation.Inject;
 import java.util.List;
 import java.util.UUID;
 
