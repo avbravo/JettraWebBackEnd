@@ -15,10 +15,11 @@ import java.util.UUID;
 public class JUserController {
 
     @Inject
-    JUserRepository jUserRepository;
+    JUserRepository jUserRepository = new com.jettra.server.autentification.repository.JUserRepositoryImpl();
     @GET
     @Produces("application/json")
     public List<JUser> findAll() {
+        System.out.println("\npaso 1");
         return jUserRepository.findAll();
     }
 

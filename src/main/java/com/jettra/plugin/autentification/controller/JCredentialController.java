@@ -1,30 +1,32 @@
 package com.jettra.plugin.autentification.controller;
 
-import com.jettra.plugin.autentification.entity.Credential;
-import com.jettra.plugin.autentification.repository.CredentialRepository;
+import com.jettra.server.autentification.entity.JCredential;
+import com.jettra.server.autentification.repository.JCredentialRepository;
 import com.jettra.rest.annotations.*;
 import com.jettra.rest.core.Response;
 import io.jettra.wui.core.annotations.Inject;
 import java.util.List;
+import java.util.UUID;
 
 @Secured
 @Path("/autentification/jcredentials")
 @DeclareRoles({"ADMIN", "MANAGER"})
 @RolesAllowed({"ADMIN"})
 public class JCredentialController {
-@Inject
-    CredentialRepository credentialRepository;
+    @Inject
+    JCredentialRepository jCredentialRepository = new com.jettra.server.autentification.repository.JCredentialRepositoryImpl();
+
     @GET
     @Produces("application/json")
-    public List<Credential> findAll() {
-        return credentialRepository.findAll();
+    public List<JCredential> findAll() {
+        return jCredentialRepository.findAll();
     }
 
     @POST
     @Consumes("application/json")
     @Produces("application/json")
-    public Response save(Credential credential) {
-       credentialRepository.save(credential);
+    public Response save(JCredential credential) {
+       jCredentialRepository.save(credential);
         return Response.ok("Saved successfully").build();
     }
 
@@ -32,7 +34,8 @@ public class JCredentialController {
     @Path("/{id}")
     @Produces("application/json")
     public Response delete(@PathParam("id") String id) {
-        credentialRepository.delete(id);
+        UUID uuid = UUID.fromString(id);
+        jCredentialRepository.delete(uuid);
         return Response.ok("Deleted successfully").build();
     }
 }

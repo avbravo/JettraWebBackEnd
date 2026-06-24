@@ -13,8 +13,8 @@ import java.util.UUID;
 @DeclareRoles({"ADMIN", "MANAGER"})
 @RolesAllowed({"ADMIN"})
 public class JRoleController {
-@Inject
-JRoleRepository jRoleRepository;
+    @Inject
+    JRoleRepository jRoleRepository = new com.jettra.server.autentification.repository.JRoleRepositoryImpl();
     @GET
     @Produces("application/json")
     public List<JRole> findAll() {
