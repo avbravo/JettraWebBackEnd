@@ -1,5 +1,7 @@
 package com.jettra.plugin.autentification.controller;
 
+import com.jettra.rest.annotations.accreditation.DeclareRoles;
+import com.jettra.rest.annotations.accreditation.RolesAllowed;
 import com.jettra.rest.annotations.*;
 import com.jettra.rest.core.Response;
 import com.jettra.server.autentification.entity.JUser;

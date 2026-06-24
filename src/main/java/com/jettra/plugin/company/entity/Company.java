@@ -13,12 +13,12 @@ import java.util.UUID;
  * @author avbravo
  */
 public record Company(
-            @NotNull
+        @NotNull
         @Size(min = 3)
         UUID id,
-            @NotNull
+        @NotNull
         String name,
-                    @NotNull    
+        @NotNull
         Boolean active
         ) {
 

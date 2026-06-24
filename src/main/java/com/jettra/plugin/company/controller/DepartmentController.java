@@ -1,5 +1,7 @@
 package com.jettra.plugin.company.controller;
 
+import com.jettra.rest.annotations.accreditation.DeclareRoles;
+import com.jettra.rest.annotations.accreditation.RolesAllowed;
 import com.jettra.plugin.company.entity.Department;
 import com.jettra.plugin.company.repository.DepartmentRepository;
 import com.jettra.rest.annotations.*;
@@ -8,7 +10,7 @@ import io.jettra.wui.core.annotations.Inject;
 import java.util.List;
 
 @Secured
-@Path("/autentification/departaments")
+@Path("/plugin/company/departaments")
 @DeclareRoles({"ADMIN", "MANAGER"})
 @RolesAllowed({"ADMIN"})
 public class DepartmentController {

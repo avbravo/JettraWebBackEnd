@@ -1,5 +1,7 @@
 package com.jettra.plugin.autentification.controller;
 
+import com.jettra.rest.annotations.accreditation.DeclareRoles;
+import com.jettra.rest.annotations.accreditation.RolesAllowed;
 import com.jettra.server.autentification.entity.JCredential;
 import com.jettra.server.autentification.repository.JCredentialRepository;
 import com.jettra.rest.annotations.*;

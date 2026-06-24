@@ -1,5 +1,7 @@
 package com.jettra.plugin.company.controller;
 
+import com.jettra.rest.annotations.accreditation.DeclareRoles;
+import com.jettra.rest.annotations.accreditation.RolesAllowed;
 import com.jettra.plugin.company.entity.Company;
 import com.jettra.plugin.company.repository.CompanyRepository;
 import com.jettra.rest.annotations.*;
@@ -8,7 +10,7 @@ import io.jettra.wui.core.annotations.Inject;
 import java.util.List;
 
 @Secured
-@Path("/autentification/companys")
+@Path("/plugin/company/companys")
 @DeclareRoles({"ADMIN", "MANAGER"})
 @RolesAllowed({"ADMIN"})
 public class CompanyController {

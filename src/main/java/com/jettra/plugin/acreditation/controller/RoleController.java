@@ -1,5 +1,7 @@
 package com.jettra.plugin.acreditation.controller;
 
+import com.jettra.rest.annotations.accreditation.DeclareRoles;
+import com.jettra.rest.annotations.accreditation.RolesAllowed;
 import com.jettra.plugin.acreditation.entity.Role;
 import com.jettra.plugin.acreditation.repository.RoleRepository;
 import com.jettra.rest.annotations.*;
@@ -8,7 +10,7 @@ import io.jettra.wui.core.annotations.Inject;
 import java.util.List;
 
 @Secured
-@Path("/autentification/roles")
+@Path("/plugin/accreditation/roles")
 @DeclareRoles({"ADMIN", "MANAGER"})
 @RolesAllowed({"ADMIN"})
 public class RoleController {
