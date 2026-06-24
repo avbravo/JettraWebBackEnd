@@ -2,18 +2,17 @@ package com.jettra.plugin.autentification.controller;
 
 import com.jettra.jwt.JettraJWT;
 import com.jettra.main.jwt.LoginResponse;
-import com.jettra.plugin.autentification.entity.Credential;
-import com.jettra.plugin.autentification.entity.Role;
-import com.jettra.plugin.autentification.entity.User;
-import com.jettra.plugin.autentification.repository.CredentialRepository;
-import com.jettra.plugin.autentification.repository.UserRepository;
 import com.jettra.rest.annotations.GET;
-import com.jettra.rest.annotations.POST;
 import com.jettra.rest.annotations.Path;
 import com.jettra.rest.annotations.PermitAll;
 import com.jettra.rest.annotations.Produces;
 import com.jettra.rest.annotations.QueryParam;
 import com.jettra.rest.core.Response;
+import com.jettra.server.autentification.entity.JCredential;
+import com.jettra.server.autentification.entity.JRole;
+import com.jettra.server.autentification.entity.JUser;
+import com.jettra.server.autentification.repository.JCredentialRepository;
+import com.jettra.server.autentification.repository.JUserRepository;
 import com.jettra.server.openapi.annotations.OpenApi;
 import com.jettra.server.openapi.annotations.Operation;
 import com.jettra.server.openapi.annotations.Parameter;
@@ -22,6 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.UUID;
 
 @Path("/autentification/auth")
 @OpenApi(title = "Library API", version = "v1.0", description = "API for Library management")
@@ -31,10 +31,10 @@ public class AuthentificationController {
     private static final long JWT_EXPIRATION = 3600000;
 
         @io.jettra.wui.core.annotations.Inject
-    private CredentialRepository credentialRepository;
+    private JCredentialRepository jCredentialRepository;
         
         @io.jettra.wui.core.annotations.Inject
-    private UserRepository userRepository;
+    private JUserRepository jUserRepository;
         
         
     
@@ -54,7 +54,7 @@ public class AuthentificationController {
 //                .filter(c -> c.username().equals(username) && c.passwordHash().equals(password))
 //                .findFirst();
         
-        Optional<Credential> optCred =  credentialRepository.findByUsernamePassword(username, password);
+        Optional<JCredential> optCred =  jCredentialRepository.findByUsernamePassword(username, password);
                
         
         
@@ -65,15 +65,16 @@ public class AuthentificationController {
         }
 
         // Fetch User using UserRepository to validate/hydrate User
-        Optional<User> optUser = userRepository.findById(optCred.get().user().id().toString());
+      //   UUID uuid = UUID.fromString(id);
+        Optional<JUser> optUser = jUserRepository.findById(UUID.fromString(optCred.get().juser().id().toString()));
         if (optUser.isEmpty()) {
             return Response.status(Response.Status.UNAUTHORIZED).entity("{\"error\":\"User not found in UserRepository\"}").build();
         }
 
-        User user = optUser.get();
+        JUser user = optUser.get();
         List<String> roleNames = new ArrayList<>();
-        if (user.roles() != null) {
-            for (Role r : user.roles()) {
+        if (user.jRoles() != null) {
+            for (JRole r : user.jRoles()) {
                 roleNames.add(r.name());
             }
         }
