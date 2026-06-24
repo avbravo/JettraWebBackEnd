@@ -2,7 +2,7 @@ package com.jettra.plugin.autentification.controller;
 
 import com.jettra.rest.annotations.*;
 import com.jettra.rest.core.Response;
-import com.jettra.server.autentification.JRole;
+import com.jettra.server.autentification.entity.JRole;
 import com.jettra.server.autentification.repository.JRoleRepository;
 import io.jettra.wui.core.annotations.Inject;
 import java.util.List;
