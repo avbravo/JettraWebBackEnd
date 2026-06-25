@@ -10,6 +10,7 @@ import com.jettra.server.config.ConfigInjector;
 
 import com.jettra.server.openapi.OpenApiHandler;
 import com.jettra.server.openapi.SwaggerUIHandler;
+import io.jettra.rest.server.JettraRestServer;
 
 import java.util.List;
 
@@ -45,15 +46,13 @@ public class Main {
         server.addHandler("/error", io.jettra.wui.complex.ErrorPage.class);
         server.addHandler("/swagger-ui", io.jettra.wui.complex.SwaggerUIPage.class);
 
-
         List<Class<?>> controllers = List.of(
-                
-// JettraAutentification
-                    com.jettra.plugin.autentification.controller.AuthentificationController.class,   
-                 com.jettra.plugin.autentification.controller.JCredentialController.class,
+                // JettraAutentification
+                com.jettra.plugin.autentification.controller.AuthentificationController.class,
+                com.jettra.plugin.autentification.controller.JCredentialController.class,
                 com.jettra.plugin.autentification.controller.JRoleController.class,
                 com.jettra.plugin.autentification.controller.JUserController.class,
-//Autentification
+                //Autentification
                 com.jettra.plugin.autentification.controller.AuthentificationController.class,
                 com.jettra.plugin.acreditation.controller.RoleController.class,
                 com.jettra.plugin.company.controller.DepartmentController.class,
@@ -66,7 +65,6 @@ public class Main {
                 com.jettra.plugin.company.controller.CompanyController.class,
                 com.jettra.plugin.company.controller.DepartmentController.class,
                 com.jettra.plugin.company.controller.HeadquartersController.class
-                
         );
 
         // Exponer el JSON de OpenAPI
@@ -76,27 +74,24 @@ public class Main {
         server.addHandler("/swagger-ui", new SwaggerUIHandler("/openapi.json"));
 
         //JettraAutentification
-        com.jettra.rest.server.JettraRestServer.register(server, AuthController.class);
+        JettraRestServer.register(server, AuthController.class);
 
- com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.AuthentificationController.class);
-        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.JCredentialController.class);
-        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.JRoleController.class);
-        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.autentification.controller.JUserController.class);
-
+        JettraRestServer.register(server, com.jettra.plugin.autentification.controller.AuthentificationController.class);
+        JettraRestServer.register(server, com.jettra.plugin.autentification.controller.JCredentialController.class);
+        JettraRestServer.register(server, com.jettra.plugin.autentification.controller.JRoleController.class);
+        JettraRestServer.register(server, com.jettra.plugin.autentification.controller.JUserController.class);
 
 //Autentification
-        
-        
-        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.acreditation.controller.RoleController.class);
-        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.acreditation.controller.UserController.class);
+       JettraRestServer.register(server, com.jettra.plugin.acreditation.controller.RoleController.class);
+      JettraRestServer.register(server, com.jettra.plugin.acreditation.controller.UserController.class);
         //Acreditation
-        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.acreditation.controller.FeatureController.class);
-        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.acreditation.controller.PermissionController.class);
-        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.acreditation.controller.PermitByDepartmentController.class);
+       JettraRestServer.register(server, com.jettra.plugin.acreditation.controller.FeatureController.class);
+      JettraRestServer.register(server, com.jettra.plugin.acreditation.controller.PermissionController.class);
+       JettraRestServer.register(server, com.jettra.plugin.acreditation.controller.PermitByDepartmentController.class);
         //Company
-        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.company.controller.CompanyController.class);
-        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.company.controller.DepartmentController.class);
-        com.jettra.rest.server.JettraRestServer.register(server, com.jettra.plugin.company.controller.HeadquartersController.class);
+      JettraRestServer.register(server, com.jettra.plugin.company.controller.CompanyController.class);
+       JettraRestServer.register(server, com.jettra.plugin.company.controller.DepartmentController.class);
+      JettraRestServer.register(server, com.jettra.plugin.company.controller.HeadquartersController.class);
 
         server.start();
     }

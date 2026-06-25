@@ -1,8 +1,8 @@
 package com.jettra.plugin.acreditation.entity;
 
 import com.jettra.plugin.company.entity.Department;
-import io.jettra.wui.validations.NotNull;
-import io.jettra.wui.validations.Size;
+import io.jettra.rules.validations.NotNull;
+import io.jettra.rules.validations.Size;
 import java.util.UUID;
 import java.util.Set;
 

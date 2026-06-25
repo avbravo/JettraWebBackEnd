@@ -1,6 +1,6 @@
 package com.jettra.plugin.acreditation.entity;
 
-import com.jettra.jwt.enumerations.TypeFeatureResource;
+import io.jettra.jwt.enumerations.TypeFeatureResource;
 import java.util.UUID;
 
 public record Feature(

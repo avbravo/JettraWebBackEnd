@@ -1,13 +1,6 @@
 package com.jettra.plugin.autentification.controller;
 
-import com.jettra.jwt.JettraJWT;
 import com.jettra.jwt.request.LoginResponse;
-import com.jettra.rest.annotations.GET;
-import com.jettra.rest.annotations.Path;
-import com.jettra.rest.annotations.PermitAll;
-import com.jettra.rest.annotations.Produces;
-import com.jettra.rest.annotations.QueryParam;
-import com.jettra.rest.core.Response;
 import com.jettra.server.autentification.entity.JCredential;
 import com.jettra.server.autentification.entity.JRole;
 import com.jettra.server.autentification.entity.JUser;
@@ -16,6 +9,14 @@ import com.jettra.server.autentification.repository.JUserRepository;
 import com.jettra.server.openapi.annotations.OpenApi;
 import com.jettra.server.openapi.annotations.Operation;
 import com.jettra.server.openapi.annotations.Parameter;
+import io.jettra.core.inject.annotation.Inject;
+import io.jettra.jwt.JettraJWT;
+import io.jettra.rest.annotations.GET;
+import io.jettra.rest.annotations.Path;
+import io.jettra.rest.annotations.PermitAll;
+import io.jettra.rest.annotations.Produces;
+import io.jettra.rest.annotations.QueryParam;
+import io.jettra.rest2.core.Response;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -30,10 +31,10 @@ public class AuthentificationController {
     private static final String JWT_SECRET = "default_secret_key_jettra_rest_2026";
     private static final long JWT_EXPIRATION = 3600000;
 
-        @com.jettra.core.inject.annotation.Inject
+        @Inject
     private JCredentialRepository jCredentialRepository;
         
-        @com.jettra.core.inject.annotation.Inject
+        @Inject
     private JUserRepository jUserRepository;
         
         

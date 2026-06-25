@@ -3,7 +3,7 @@ package com.jettra.plugin.acreditation.repository;
 import com.jettra.plugin.acreditation.entity.Feature;
 import com.jettra.plugin.acreditation.entity.Permission;
 import com.jettra.plugin.acreditation.entity.Role;
-import com.jettra.core.inject.annotation.Inject;
+import io.jettra.core.inject.annotation.Inject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

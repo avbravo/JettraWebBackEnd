@@ -1,7 +1,7 @@
 package com.jettra.plugin.acreditation.repository;
 
-import com.jettra.jwt.enumerations.TypeFeatureResource;
 import com.jettra.plugin.acreditation.entity.Feature;
+import io.jettra.jwt.enumerations.TypeFeatureResource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

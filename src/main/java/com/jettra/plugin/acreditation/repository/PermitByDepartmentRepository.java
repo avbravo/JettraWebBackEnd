@@ -6,7 +6,7 @@ import com.jettra.plugin.acreditation.entity.Role;
 import com.jettra.plugin.acreditation.entity.User;
 import com.jettra.plugin.company.entity.Department;
 import com.jettra.plugin.company.repository.DepartmentRepository;
-import com.jettra.core.inject.annotation.Inject;
+import io.jettra.core.inject.annotation.Inject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
