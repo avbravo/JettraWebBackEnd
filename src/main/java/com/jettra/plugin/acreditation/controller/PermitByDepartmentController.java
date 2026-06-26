@@ -13,7 +13,7 @@ import io.jettra.rest.annotations.Produces;
 import io.jettra.rest.annotations.Secured;
 import io.jettra.rest.annotations.accreditation.DeclareRoles;
 import io.jettra.rest.annotations.accreditation.RolesAllowed;
-import io.jettra.rest2.core.Response;
+import io.jettra.rest.core.Response;
 import java.util.List;
 
 @Secured

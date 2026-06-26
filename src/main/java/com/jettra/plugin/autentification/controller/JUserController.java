@@ -1,7 +1,7 @@
 package com.jettra.plugin.autentification.controller;
 
-import com.jettra.server.autentification.entity.JUser;
-import com.jettra.server.autentification.repository.JUserRepository;
+import io.jettra.server.autentification.entity.JUser;
+import io.jettra.server.autentification.repository.JUserRepository;
 import io.jettra.core.inject.annotation.Inject;
 import io.jettra.rest.annotations.Consumes;
 import io.jettra.rest.annotations.DELETE;
@@ -13,7 +13,7 @@ import io.jettra.rest.annotations.Produces;
 import io.jettra.rest.annotations.Secured;
 import io.jettra.rest.annotations.accreditation.DeclareRoles;
 import io.jettra.rest.annotations.accreditation.RolesAllowed;
-import io.jettra.rest2.core.Response;
+import io.jettra.rest.core.Response;
 import java.util.List;
 import java.util.UUID;
 
@@ -24,7 +24,7 @@ import java.util.UUID;
 public class JUserController {
 
     @Inject
-    JUserRepository jUserRepository = new com.jettra.server.autentification.repository.JUserRepositoryImpl();
+    JUserRepository jUserRepository = new io.jettra.server.autentification.repository.JUserRepositoryImpl();
     @GET
     @Produces("application/json")
     public List<JUser> findAll() {

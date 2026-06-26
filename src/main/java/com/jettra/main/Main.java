@@ -4,12 +4,12 @@
 package com.jettra.main;
 
 import com.jettra.main.jwt.AuthController;
-import com.jettra.server.JettraServer;
-import com.jettra.server.config.JettraConfigProperty;
-import com.jettra.server.config.ConfigInjector;
+import io.jettra.server.JettraServer;
+import io.jettra.server.config.JettraConfigProperty;
+import io.jettra.server.config.ConfigInjector;
 
-import com.jettra.server.openapi.OpenApiHandler;
-import com.jettra.server.openapi.SwaggerUIHandler;
+import io.jettra.server.openapi.OpenApiHandler;
+import io.jettra.server.openapi.SwaggerUIHandler;
 import io.jettra.rest.server.JettraRestServer;
 
 import java.util.List;
@@ -30,7 +30,7 @@ public class Main {
 
     public static void main(String[] args) {
         if (args != null && args.length > 0 && args[0].equals("-console")) {
-            com.jettra.server.autentification.SecurityCLI.main(args);
+            io.jettra.server.autentification.SecurityCLI.main(args);
             return;
         }
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.jettra</groupId>
+    <groupId>io.jettra</groupId>
     <artifactId>JettraWebBackEnd</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -22,7 +22,7 @@
      <dependencies>
         <!-- Servidor backend subyacente -->
        <dependency>
-            <groupId>com.jettra</groupId>
+            <groupId>io.jettra</groupId>
             <artifactId>JettraAppServer</artifactId>
             <version>${jettra.appserver.version}</version>
         </dependency>
@@ -33,7 +33,7 @@
             <version>${jettra.wui.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.jettra</groupId>
+            <groupId>io.jettra</groupId>
             <artifactId>JettraReport</artifactId>
             <version>${jettra.report.version}</version>
         </dependency>
@@ -69,7 +69,7 @@
                     <annotationProcessors>
                         <annotationProcessor>io.jettra.wui.core.processors.ModelToRecordProcessor</annotationProcessor>
                         <annotationProcessor>io.jettra.wui.core.processors.CrudViewProcessor</annotationProcessor>
-                        <annotationProcessor>com.jettra.rest.client.processor.RestClientProcessor</annotationProcessor>
+                        <annotationProcessor>io.jettra.rest.client.processor.RestClientProcessor</annotationProcessor>
                     </annotationProcessors>
                     <compilerArgs>
                         <arg>-XprintRounds</arg>
