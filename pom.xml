@@ -26,7 +26,6 @@
             <groupId>io.jettra</groupId>
             <artifactId>JettraJSON</artifactId>
             <version>${jettra.json.version}</version>
-            <scope>provided</scope>
         </dependency>
         <!-- Servidor backend subyacente -->
         <dependency>
