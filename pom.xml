@@ -84,9 +84,9 @@
                     </compilerArgs>
                     <annotationProcessorPaths>
                         <path>
-                            <groupId>io.jettra.wui</groupId>
+                            <groupId>io.jettra</groupId>
                             <artifactId>JettraWUI</artifactId>
-                            <version>${jettra.jwt.version}</version>
+                            <version>${jettra.wui.version}</version>
                         </path>
                         <path>
                             <groupId>com.google.auto.service</groupId>
