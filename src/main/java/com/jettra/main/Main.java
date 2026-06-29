@@ -13,7 +13,11 @@ import io.jettra.server.openapi.SwaggerUIHandler;
 import io.jettra.rest.server.JettraRestServer;
 
 import java.util.List;
+import java.util.ArrayList;
+import io.jettra.server.discoverer.DiscoveredLoad;
+import io.jettra.server.discoverer.DiscoveredRegistry;
 
+@DiscoveredLoad
 public class Main {
 
     @JettraConfigProperty(name = "app.title")
@@ -46,26 +50,12 @@ public class Main {
         server.addHandler("/error", io.jettra.wui.complex.ErrorPage.class);
         server.addHandler("/swagger-ui", io.jettra.wui.complex.SwaggerUIPage.class);
 
-        List<Class<?>> controllers = List.of(
-                // JettraAutentification
-                com.jettra.plugin.autentification.controller.AuthentificationController.class,
-                com.jettra.plugin.autentification.controller.JCredentialController.class,
-                com.jettra.plugin.autentification.controller.JRoleController.class,
-                com.jettra.plugin.autentification.controller.JUserController.class,
-                //Autentification
-                com.jettra.plugin.autentification.controller.AuthentificationController.class,
-                com.jettra.plugin.acreditation.controller.RoleController.class,
-                com.jettra.plugin.company.controller.DepartmentController.class,
-                com.jettra.plugin.acreditation.controller.UserController.class,
-                //Accreditation
-                com.jettra.plugin.acreditation.controller.FeatureController.class,
-                com.jettra.plugin.acreditation.controller.PermissionController.class,
-                com.jettra.plugin.acreditation.controller.PermitByDepartmentController.class,
-                //Company
-                com.jettra.plugin.company.controller.CompanyController.class,
-                com.jettra.plugin.company.controller.DepartmentController.class,
-                com.jettra.plugin.company.controller.HeadquartersController.class
-        );
+        // Cargamos los controladores descubiertos automáticamente
+        List<Class<?>> controllers = new ArrayList<>(DiscoveredRegistry.getDiscoveredClasses(Main.class));
+
+        // Puedes agregar aquí manualmente las clases que tengan @Discovered(automatic=false)
+        // o que no tengan la anotación
+        // controllers.add(MiControladorManual.class);
 
         // Exponer el JSON de OpenAPI
         server.addHandler("/openapi.json", new OpenApiHandler(controllers));
@@ -73,25 +63,11 @@ public class Main {
         // Exponer la interfaz Swagger UI
         server.addHandler("/swagger-ui", new SwaggerUIHandler("/openapi.json"));
 
-        //JettraAutentification
+        // Registrar los controladores descubiertos en JettraRestServer
+        JettraRestServer.registerDiscovered(server, Main.class);
+
+        // Registro manual para los que no se descubren automáticamente
         JettraRestServer.register(server, AuthController.class);
-
-        JettraRestServer.register(server, com.jettra.plugin.autentification.controller.AuthentificationController.class);
-        JettraRestServer.register(server, com.jettra.plugin.autentification.controller.JCredentialController.class);
-        JettraRestServer.register(server, com.jettra.plugin.autentification.controller.JRoleController.class);
-        JettraRestServer.register(server, com.jettra.plugin.autentification.controller.JUserController.class);
-
-//Autentification
-       JettraRestServer.register(server, com.jettra.plugin.acreditation.controller.RoleController.class);
-      JettraRestServer.register(server, com.jettra.plugin.acreditation.controller.UserController.class);
-        //Acreditation
-       JettraRestServer.register(server, com.jettra.plugin.acreditation.controller.FeatureController.class);
-      JettraRestServer.register(server, com.jettra.plugin.acreditation.controller.PermissionController.class);
-       JettraRestServer.register(server, com.jettra.plugin.acreditation.controller.PermitByDepartmentController.class);
-        //Company
-      JettraRestServer.register(server, com.jettra.plugin.company.controller.CompanyController.class);
-       JettraRestServer.register(server, com.jettra.plugin.company.controller.DepartmentController.class);
-      JettraRestServer.register(server, com.jettra.plugin.company.controller.HeadquartersController.class);
 
         server.start();
     }

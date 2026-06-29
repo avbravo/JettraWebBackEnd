@@ -15,8 +15,11 @@ import io.jettra.rest.annotations.accreditation.DeclareRoles;
 import io.jettra.rest.annotations.accreditation.RolesAllowed;
 import io.jettra.rest.core.Response;
 import java.util.List;
+import io.jettra.server.discoverer.Discovered;
 
+@Discovered
 @Secured
+
 @Path("/plugin/company/companys")
 @DeclareRoles({"ADMIN", "MANAGER"})
 @RolesAllowed({"ADMIN"})
@@ -39,9 +42,11 @@ public class CompanyController {
     }
 
     @DELETE
-    @Path("/{id}")
+    
+@Path("/{id}")
     @Produces("application/json")
-    public Response delete(@PathParam("id") String id) {
+    public Response delete(
+@PathParam("id") String id) {
        companyRepository.delete(id);
         return Response.ok("Deleted successfully").build();
     }

@@ -17,6 +17,7 @@ import io.jettra.rest.annotations.PermitAll;
 import io.jettra.rest.annotations.Produces;
 import io.jettra.rest.annotations.QueryParam;
 import io.jettra.rest.core.Response;
+import io.jettra.server.discoverer.Discovered;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -26,6 +27,7 @@ import java.util.UUID;
 
 @Path("/autentification/auth")
 @OpenApi(title = "Library API", version = "v1.0", description = "API for Library management")
+@Discovered
 public class AuthentificationController {
 
     private static final String JWT_SECRET = "default_secret_key_jettra_rest_2026";

@@ -14,12 +14,14 @@ import io.jettra.rest.annotations.Secured;
 import io.jettra.rest.annotations.accreditation.DeclareRoles;
 import io.jettra.rest.annotations.accreditation.RolesAllowed;
 import io.jettra.rest.core.Response;
+import io.jettra.server.discoverer.Discovered;
 import java.util.List;
 
 @Secured
 @Path("/plugin/accreditation/featureresources")
 @DeclareRoles({"ADMIN", "MANAGER"})
 @RolesAllowed({"ADMIN"})
+@Discovered
 public class PermitByDepartmentController {
 @Inject
    PermitByDepartmentRepository userDepartmentRoleResourceRepository;
