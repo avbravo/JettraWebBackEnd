@@ -11,6 +11,12 @@ public record User(
         @Size(min = 3)
         UUID id,
         @NotNull
+        String username,
+        @NotNull
+        String passwordHash,
+        @NotNull
+        String identificationNumber,
+        @NotNull
         @Size(min = 3)
         String firstName,
         @NotNull
@@ -18,10 +24,11 @@ public record User(
         String lastName,
         String email,
         String phone,
-        Boolean active,
         @NotNull
-        Set<Department> departments,
-        Set<Role> roles
+        Boolean active,
+        String photo,
+        Set<RoleDepartament> roleDepartaments
+
         ) {
 
 }

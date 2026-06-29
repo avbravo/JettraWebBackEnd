@@ -14,19 +14,17 @@ import java.util.UUID;
  * @author avbravo Description: Administra los roles por departamento por user.
  * Se usa para casos en los que las validaciones son necesarias para usuarios
  * con varios roles por departamento.
+ * Es una clase embebida dentro de User
  */
-public record PermitByDepartment(
+
+public record RoleDepartament(
         @NotNull
         @Size(min = 3)
-        UUID id,
-        @NotNull
-        User user,
+        UUID id,       
         @NotNull
         Role role,
         @NotNull
-        Department departament,
+        Department department,
         @NotNull
         Boolean active
-        ) {
-
-}
+        ) {}

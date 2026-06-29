@@ -13,7 +13,7 @@ import java.util.UUID;
 public record Permission(
         UUID id,
         Role role,
-        Feature featureResource,
+        Feature feature,
         Boolean reader,
         Boolean write,
         Boolean delete,

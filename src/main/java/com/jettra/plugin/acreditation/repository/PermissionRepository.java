@@ -57,7 +57,7 @@ public class PermissionRepository {
 
     public static void save(Permission record) {
         if (record.id() == null) {
-            record = new Permission(UUID.randomUUID(), record.role(), record.featureResource(), record.reader(), record.write(),record.delete(),record.report());
+            record = new Permission(UUID.randomUUID(), record.role(), record.feature(), record.reader(), record.write(),record.delete(),record.report());
         }
         delete(record.id().toString());
         db.add(record);

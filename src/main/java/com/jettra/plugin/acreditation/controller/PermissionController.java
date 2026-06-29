@@ -18,7 +18,7 @@ import io.jettra.server.discoverer.Discovered;
 import java.util.List;
 
 @Secured
-@Path("/plugin/accreditation/permissionresources")
+@Path("/plugin/accreditation/rolefeatures")
 @DeclareRoles({"ADMIN", "MANAGER"})
 @RolesAllowed({"ADMIN"})
 @Discovered

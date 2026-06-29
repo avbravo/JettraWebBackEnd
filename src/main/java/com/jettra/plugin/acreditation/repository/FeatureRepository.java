@@ -1,7 +1,7 @@
 package com.jettra.plugin.acreditation.repository;
 
 import com.jettra.plugin.acreditation.entity.Feature;
-import io.jettra.jwt.enumerations.TypeFeatureResource;
+import io.jettra.plugin.accreditation.enumerations.TypeFeature;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -12,53 +12,53 @@ public class FeatureRepository {
 
     static {
         // Navigation / Administration / Credentials (secured/restricted)
-        addOptions("PANEL_PRINCIPAL", "Panel Principal", "/dashboard", TypeFeatureResource.MENU);
-        addOptions("PERMISOS", "Administrar Permisos", "/permiso", TypeFeatureResource.MENU);
-        addOptions("ROLES", "Administrar Roles", "/rol", TypeFeatureResource.MENU);
-        addOptions("PERFILES", "Administrar Perfiles", "/perfil", TypeFeatureResource.MENU);
-        addOptions("USUARIOS", "Administrar Usuarios", "/usuario", TypeFeatureResource.MENU);
-        addOptions("WEB_DESIGNER", "Web Designer", "/webdesigner", TypeFeatureResource.MENU);
-        addOptions("KANBAN_BOARD", "Kanban Board", "/kanban", TypeFeatureResource.MENU);
-        addOptions("SWAGGER_UI", "Swagger UI", "/swagger-ui", TypeFeatureResource.MENU);
+        addOptions("PANEL_PRINCIPAL", "Panel Principal", "/dashboard", TypeFeature.MENU);
+        addOptions("PERMISOS", "Administrar Permisos", "/permiso", TypeFeature.MENU);
+        addOptions("ROLES", "Administrar Roles", "/rol", TypeFeature.MENU);
+        addOptions("PERFILES", "Administrar Perfiles", "/perfil", TypeFeature.MENU);
+        addOptions("USUARIOS", "Administrar Usuarios", "/usuario", TypeFeature.MENU);
+        addOptions("WEB_DESIGNER", "Web Designer", "/webdesigner", TypeFeature.MENU);
+        addOptions("KANBAN_BOARD", "Kanban Board", "/kanban", TypeFeature.MENU);
+        addOptions("SWAGGER_UI", "Swagger UI", "/swagger-ui", TypeFeature.MENU);
 
         // Credentials Category (secured/restricted)
-        addOptions("CREDENTIAL", "Credential Page", "/credential", TypeFeatureResource.MENU);
-        addOptions("PERMISSION", "Options Page", "/permission", TypeFeatureResource.MENU);
-        addOptions("ROLE", "Role Page", "/role", TypeFeatureResource.MENU);
-        addOptions("DEPARTMENT", "Department Page", "/department", TypeFeatureResource.MENU);
-        addOptions("USER", "User Page", "/user", TypeFeatureResource.MENU);
+        addOptions("CREDENTIAL", "Credential Page", "/credential", TypeFeature.MENU);
+        addOptions("PERMISSION", "Options Page", "/permission", TypeFeature.MENU);
+        addOptions("ROLE", "Role Page", "/role", TypeFeature.MENU);
+        addOptions("DEPARTMENT", "Department Page", "/department", TypeFeature.MENU);
+        addOptions("USER", "User Page", "/user", TypeFeature.MENU);
 
         // Rules Category
-        addOptions("REGLAS", "Reglas Page", "/reglas", TypeFeatureResource.MENU);
-        addOptions("REGLAS_VIEW", "Reglas View Crud Page", "/reglasview", TypeFeatureResource.MENU);
+        addOptions("REGLAS", "Reglas Page", "/reglas", TypeFeature.MENU);
+        addOptions("REGLAS_VIEW", "Reglas View Crud Page", "/reglasview", TypeFeature.MENU);
 
         // Crud Category
-        addOptions("PERSONA", "Persona CRUD", "/persona", TypeFeatureResource.MENU);
-        addOptions("PAIS", "Pais CRUD", "/pais", TypeFeatureResource.MENU);
-        addOptions("DEPORTE", "Deporte CRUD", "/deporte", TypeFeatureResource.MENU);
+        addOptions("PERSONA", "Persona CRUD", "/persona", TypeFeature.MENU);
+        addOptions("PAIS", "Pais CRUD", "/pais", TypeFeature.MENU);
+        addOptions("DEPORTE", "Deporte CRUD", "/deporte", TypeFeature.MENU);
 
         // CrudView Category
-        addOptions("GRUPO", "Grupo CRUD", "/grupo", TypeFeatureResource.MENU);
-        addOptions("SUBGRUPO", "SubGrupo CRUD", "/subgrupo", TypeFeatureResource.MENU);
-        addOptions("PLANETA", "Planeta CRUD", "/planeta", TypeFeatureResource.MENU);
-        addOptions("DATATABLE_EDITABLE_CRUD", "Datatable Editable Crud View", "/datatableeditablecrudview", TypeFeatureResource.MENU);
-        addOptions("CANCION", "Cancion CRUD", "/cancion", TypeFeatureResource.MENU);
+        addOptions("GRUPO", "Grupo CRUD", "/grupo", TypeFeature.MENU);
+        addOptions("SUBGRUPO", "SubGrupo CRUD", "/subgrupo", TypeFeature.MENU);
+        addOptions("PLANETA", "Planeta CRUD", "/planeta", TypeFeature.MENU);
+        addOptions("DATATABLE_EDITABLE_CRUD", "Datatable Editable Crud View", "/datatableeditablecrudview", TypeFeature.MENU);
+        addOptions("CANCION", "Cancion CRUD", "/cancion", TypeFeature.MENU);
 
         // Library Category
-        addOptions("AUTHOR", "Author Library", "/author", TypeFeatureResource.MENU);
-        addOptions("BOOK", "Book Library", "/book", TypeFeatureResource.MENU);
-        addOptions("PUBLISHER", "Publisher Library", "/publisher", TypeFeatureResource.MENU);
-        addOptions("READER", "Reader Library", "/reader", TypeFeatureResource.MENU);
+        addOptions("AUTHOR", "Author Library", "/author", TypeFeature.MENU);
+        addOptions("BOOK", "Book Library", "/book", TypeFeature.MENU);
+        addOptions("PUBLISHER", "Publisher Library", "/publisher", TypeFeature.MENU);
+        addOptions("READER", "Reader Library", "/reader", TypeFeature.MENU);
 
         // DataTable Category
-        addOptions("DATATABLE", "DataTable Page", "/datatable", TypeFeatureResource.MENU);
-        addOptions("DATATABLE_EDITABLE", "Datatable Editable", "/datatableeditable", TypeFeatureResource.MENU);
+        addOptions("DATATABLE", "DataTable Page", "/datatable", TypeFeature.MENU);
+        addOptions("DATATABLE_EDITABLE", "Datatable Editable", "/datatableeditable", TypeFeature.MENU);
 
         // Master-Details Category
-        addOptions("VIEW_DATATABLE", "View DataTable", "/viewdatatable", TypeFeatureResource.MENU);
+        addOptions("VIEW_DATATABLE", "View DataTable", "/viewdatatable", TypeFeature.MENU);
     }
 
-    private static void addOptions(String name, String desc, String path,TypeFeatureResource typeFeatureResource) {
+    private static void addOptions(String name, String desc, String path,TypeFeature typeFeatureResource) {
         db.add(new Feature(UUID.nameUUIDFromBytes((name ).getBytes()), name , desc , path,typeFeatureResource));
         
     }
@@ -69,7 +69,7 @@ public class FeatureRepository {
 
     public static void save(Feature record) {
         if (record.id() == null) {
-            record = new Feature(UUID.randomUUID(), record.name(), record.description(), record.resourcePath(),record.typeFeatureResource());
+            record = new Feature(UUID.randomUUID(), record.name(), record.description(), record.resourcePath(),record.typeFeature());
         }
         delete(record.id().toString());
         db.add(record);

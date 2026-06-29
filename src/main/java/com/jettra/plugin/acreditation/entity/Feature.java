@@ -1,6 +1,6 @@
 package com.jettra.plugin.acreditation.entity;
 
-import io.jettra.jwt.enumerations.TypeFeatureResource;
+import io.jettra.plugin.accreditation.enumerations.TypeFeature;
 import java.util.UUID;
 
 public record Feature(
@@ -8,7 +8,7 @@ public record Feature(
         String name,
         String description,
         String resourcePath,
-        TypeFeatureResource typeFeatureResource
+        TypeFeature typeFeature
         ) {
 
 }
