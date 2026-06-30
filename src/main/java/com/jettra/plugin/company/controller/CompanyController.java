@@ -7,6 +7,7 @@ import io.jettra.rest.annotations.Consumes;
 import io.jettra.rest.annotations.DELETE;
 import io.jettra.rest.annotations.GET;
 import io.jettra.rest.annotations.POST;
+import io.jettra.rest.annotations.PUT;
 import io.jettra.rest.annotations.Path;
 import io.jettra.rest.annotations.PathParam;
 import io.jettra.rest.annotations.Produces;
@@ -37,8 +38,19 @@ public class CompanyController {
     @Consumes("application/json")
     @Produces("application/json")
     public Response save(Company company) {
+        IO.print("Llego a save...");
+        IO.print("company "+company.toString());
+
        companyRepository.save(company);
         return Response.ok("Saved successfully").build();
+    }
+
+    @PUT
+    @Consumes("application/json")
+    @Produces("application/json")
+    public Response update(Company company) {
+       companyRepository.save(company);
+        return Response.ok("Updated successfully").build();
     }
 
     @DELETE
