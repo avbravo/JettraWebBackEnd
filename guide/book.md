@@ -26,8 +26,8 @@ Abre el archivo `pom.xml` y reemplaza el contenido o añade las siguientes propi
 
 ```xml
 <properties>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
+    <maven.compiler.source>25</maven.compiler.source>
+    <maven.compiler.target>25</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     
     <jettra.appserver.version>1.0.0-SNAPSHOT</jettra.appserver.version>
