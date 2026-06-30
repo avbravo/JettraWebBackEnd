@@ -28,13 +28,16 @@ public class UserRepository {
 
         List<Role> availableRoles = roleRepository.findAll();
         List<Department> availableDepartments = departmentRepository.findAll();
+        IO.println("------------------------------------------");
+        IO.println("availableRoles: "+availableRoles.size());
+        IO.println("availableDepartments: "+availableDepartments.size());
         // List<RoleDepartament> roleDepartaments = new ArrayList<>();
         Set<RoleDepartament> roleDepartaments = new HashSet<>();
         Set<RoleDepartament> roleDepartaments2 = new HashSet<>();
         Set<RoleDepartament> roleDepartaments3 = new HashSet<>();
-        int minimo = 10;
-        int maximo = availableDepartments.size();
-        int maximoRole = availableRoles.size();
+        int minimo = 1;
+        int maximo = availableDepartments.size()-1;
+        int maximoRole = availableRoles.size()-1;
 //        for (Role r : availableRoles) {
             // Obtiene el generador por defecto del sistema
             RandomGenerator generador = RandomGenerator.getDefault();
