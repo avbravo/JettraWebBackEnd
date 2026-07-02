@@ -3,7 +3,7 @@
  */
 package com.jettra.main;
 
-import com.jettra.main.jwt.AuthController;
+import io.jettra.server.jwt.AuthController;
 import io.jettra.server.JettraServer;
 import io.jettra.server.config.JettraConfigProperty;
 import io.jettra.server.config.ConfigInjector;
@@ -29,7 +29,7 @@ public class Main {
 
     public void initUI() {
         ConfigInjector.inject(this);
-        System.out.println("Iniciando aplicación Web: " + appTitle);
+       IO.println("Iniciando aplicación Web: " + appTitle);
     }
 
     public static void main(String[] args) {
@@ -44,7 +44,7 @@ public class Main {
         // Configurar la ruta de redirección en ErrorPage, usando contextpath (y el puerto implícitamente por el host)
         io.jettra.wui.complex.ErrorPage.path = "http://localhost:" + app.port + app.contextpath;
 
-        System.out.println("Levantando servidor de enrutamiento JettraServer empotrado...");
+        IO.println("Levantando servidor de enrutamiento JettraServer empotrado...");
         JettraServer server = new JettraServer();
         server.setErrorPage("/error");
         server.addHandler("/error", io.jettra.wui.complex.ErrorPage.class);
