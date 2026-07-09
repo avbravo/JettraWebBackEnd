@@ -28,6 +28,7 @@ public class CompanyController {
 
     @Inject
     CompanyRepository companyRepository;
+
     @GET
     @Produces("application/json")
     public List<Company> findAll() {
@@ -38,10 +39,7 @@ public class CompanyController {
     @Consumes("application/json")
     @Produces("application/json")
     public Response save(Company company) {
-        IO.print("Llego a save...");
-        IO.print("company "+company.toString());
-
-       companyRepository.save(company);
+        companyRepository.save(company);
         return Response.ok("Saved successfully").build();
     }
 
@@ -49,17 +47,16 @@ public class CompanyController {
     @Consumes("application/json")
     @Produces("application/json")
     public Response update(Company company) {
-       companyRepository.save(company);
+        companyRepository.save(company);
         return Response.ok("Updated successfully").build();
     }
 
     @DELETE
-    
-@Path("/{id}")
+
+    @Path("/{id}")
     @Produces("application/json")
-    public Response delete(
-@PathParam("id") String id) {
-       companyRepository.delete(id);
+    public Response delete(@PathParam("id") String id) {
+        companyRepository.delete(id);
         return Response.ok("Deleted successfully").build();
     }
 }
